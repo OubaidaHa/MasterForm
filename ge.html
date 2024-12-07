@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de proposition de sujet de stage</title>
+    <style>
+        /* Style de base pour le formulaire */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            height: 150px;
+        }
+        .form-group .radio-label {
+            margin-right: 10px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .counter {
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Formulaire de proposition de sujet de stage</h1>
+        <form action="https://formspree.io/f/xnnqrwbr" method="POST">
+
+            <!-- Nom et spécialité -->
+            <div class="form-group">
+                <label for="name" class="required">Nom de l'enseignant encadrant :</label>
+                <select id="name" name="name" required>
+                    <option value="">Sélectionnez un nom</option>
+                    <option value="Benmarce Keddour">Benmarce Keddour</option>
+                    <option value="Bersi Mohand">Bersi Mohand</option>
+                    <option value="Bouasla Said">Bouasla Said</option>
+                    <option value="Bouaziz Ala Eddine">Bouaziz Ala Eddine</option>
+                    <option value="Boubazine Liela">Boubazine Liela</option>
+                    <option value="Bouima Tayeb">Bouima Tayeb</option>
+                    <option value="Bouregba Nadjet">Bouregba Nadjet</option>
+                    <option value="Boustila Ridha">Boustila Ridha</option>
+                    <option value="Boutine Nouar">Boutine Nouar</option>
+                    <option value="Chabou Moulley Charaf">Chabou Moulley Charaf</option>
+                    <option value="Chouaf Ibtessem">Chouaf Ibtessem</option>
+                    <option value="Demdoum Abessalam">Demdoum Abessalam</option>
+                    <option value="Hachemaoui Oubaida">Hachemaoui Oubaida</option>
+                    <option value="Hadji Rihab">Hadji Rihab</option>
+                    <option value="Hamdani Abd Elaziz">Hamdani Abd Elaziz</option>
+                    <option value="Hamlaoui Mahmoud">Hamlaoui Mahmoud</option>
+                    <option value="Kada Houria">Kada Houria</option>
+                    <option value="Laghouag Med Yacine">Laghouag Med Yacine</option>
+                    <option value="Maou Amel">Maou Amel</option>
+                    <option value="Seklaoui M'Hamed">Seklaoui M'Hamed</option>
+                    <option value="Souadnia Sabrina">Souadnia Sabrina</option>
+                    <option value="Talhi Ahmed">Talhi Ahmed</option>
+                    <option value="Zahri Farid">Zahri Farid</option>
+                    <option value="Zeroual Manal">Zeroual Manal</option>
+                    <option value="Zighmi Karim">Zighmi Karim</option>
+                </select>
+            </div>
+
+            <!-- Ajout du champ e-mail de l'enseignant encadrant -->
+            <div class="form-group">
+                <label for="email-encadrant" class="required">Adresse e-mail :</label>
+                <input type="email" id="email-encadrant" name="email-encadrant" required>
+            </div>
+
+            <div class="form-group">
+                <label for="speciality">Spécialité :</label>
+                <input type="text" id="speciality" name="speciality" readonly>
+            </div>
+
+            <!-- Intitulé du sujet -->
+            <div class="form-group">
+                <label for="title" class="required">Intitulé du sujet :</label>
+                <input type="text" id="title" name="title" required maxlength="500">
+                <div class="counter" id="title-counter">Caractères restants : 500</div>
+            </div>
+
+            <!-- Brève description -->
+            <div class="form-group">
+                <label for="problem-description" class="required">Brève description du problème à résoudre :</label>
+                <textarea id="problem-description" name="problem-description" required maxlength="2000"></textarea>
+                <div class="counter" id="problem-counter">Caractères restants : 2000</div>
+            </div>
+
+            <!-- Co-encadrant -->
+            <div class="form-group">
+                <label>Co-encadrant :</label>
+                <label class="radio-label">
+                    <input type="radio" id="coencadrant-oui" name="coencadrant" value="Oui"> Oui
+                </label>
+                <label class="radio-label">
+                    <input type="radio" id="coencadrant-non" name="coencadrant" value="Non" checked> Non
+                </label>
+            </div>
+
+            <div id="co-encadrant-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="co-encadrant-name">Nom du co-encadrant :</label>
+                    <input type="text" id="co-encadrant-name" name="co-encadrant-name">
+                </div>
+                <div class="form-group">
+                    <label for="co-encadrant-grade">Grade du co-encadrant :</label>
+                    <input type="text" id="co-encadrant-grade" name="co-encadrant-grade">
+                </div>
+
+                <!-- Ajout du champ e-mail du co-encadrant -->
+                <div class="form-group">
+                    <label for="email-coencadrant" class="required">Adresse e-mail du co-encadrant :</label>
+                    <input type="email" id="email-coencadrant" name="email-coencadrant" required>
+                </div>
+            </div>
+
+            <!-- Soumettre le formulaire -->
+            <div class="form-group">
+                <input type="submit" value="Soumettre la proposition">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Liste des spécialités et adresses e-mail associées aux noms
+        const specialtiesAndEmails = {
+            "Benmarce Keddour": {"specialty": "Hydrogéologie (Hydro)", "email": "kaddour.benmarce.24@gmail.com"},
+            "Bersi Mohand": {"specialty": "Hydrogéologie (Hydro)", "email": "m.bersi@outlook.com"},
+            "Bouasla Said": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "bouasla.said@yahoo.fr"},
+            "Bouaziz Ala Eddine": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "ala_geologue@yahoo.fr"},
+            "Boubazine Liela": {"specialty": "Géologie de l'ingénieur et géotechnique (GI)", "email": "b.leila@univ-setif.dz"},
+            "Bouima Tayeb": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "tbouima50@gmail.com"},
+            "Bouregba Nadjet": {"specialty": "Géologie de l'ingénieur et géotechnique (GI)", "email": "bngeologie@gmail.com"},
+            "Boustila Ridha": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "r.boustila@yahoo.fr"},
+            "Boutine Nouar": {"specialty": "Géologie de l'ingénieur et géotechnique (GI)", "email": "nbouttine@yahoo.fr"},
+            "Chabou Moulley Charaf": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "charaf.chabou@hotmail.com"},
+            "Chouaf Ibtessem": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "chouafibtissem@yahoo.fr"},
+            "Demdoum Abessalam": {"specialty": "Hydrogéologie (Hydro)", "email": "slimdem@yahoo.fr"},
+            "Hachemaoui Oubaida": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "oubaidahachemaoui@gmail.com"},
+            "Hadji Rihab": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "hadjirihab@gmail.com"},
+            "Hamdani Abd Elaziz": {"specialty": "Hydrogéologie (Hydro)", "email": "hamdani.aziz@gmail.com"},
+            "Hamlaoui Mahmoud": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "hamlaouis@yahoo.fr"},
+            "Kada Houria": {"specialty": "Hydrogéologie (Hydro)", "email": "tectites@gmail.com"},
+            "Laghouag Med Yacine": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "laghouag.yacine@gmail.com"},
+            "Maou Amel": {"specialty": "Hydrogéologie (Hydro)", "email": "amelmaou@gmail.com"},
+            "Seklaoui M'Hamed": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "med.seklaoui@gmail.com"},
+            "Souadnia Sabrina": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "souadniageo@yahoo.fr"},
+            "Talhi Ahmed": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "ahmedtalhi1988@yahoo.com"},
+            "Zahri Farid": {"specialty": "Géologie de l'ingénieur et géotechnique (GI)", "email": "zahrifarid@yahoo.fr"},
+            "Zeroual Manal": {"specialty": "Hydrogéologie (Hydro)", "email": "menalzeroual19@gmail.com"},
+            "Zighmi Karim": {"specialty": "Ressources minérales, géomatériaux et Environnement (RMGE)", "email": "zighmi.karim19@gmail.com"}
+        };
+
+        // Fonction pour mettre à jour l'e-mail et la spécialité en fonction du nom sélectionné
+        document.getElementById("name").addEventListener("change", function() {
+            const selectedName = this.value;
+            const emailField = document.getElementById("email-encadrant");
+            const specialityField = document.getElementById("speciality");
+
+            if (specialtiesAndEmails[selectedName]) {
+                emailField.value = specialtiesAndEmails[selectedName].email;
+                specialityField.value = specialtiesAndEmails[selectedName].specialty;
+            }
+        });
+
+        // Fonction pour ajuster le compteur de caractères du champ "Intitulé du sujet"
+        document.getElementById("title").addEventListener("input", function() {
+            const maxLength = 500;
+            const currentLength = this.value.length;
+            document.getElementById("title-counter").textContent = `Caractères restants : ${maxLength - currentLength}`;
+        });
+
+        // Fonction pour ajuster le compteur de caractères du champ "Brève description"
+        document.getElementById("problem-description").addEventListener("input", function() {
+            const maxLength = 2000;
+            const currentLength = this.value.length;
+            document.getElementById("problem-counter").textContent = `Caractères restants : ${maxLength - currentLength}`;
+        });
+
+        // Fonction pour afficher/cacher les champs du co-encadrant en fonction de la sélection
+        document.querySelectorAll("input[name='coencadrant']").forEach(function(radio) {
+            radio.addEventListener("change", function() {
+                const coEncadrantFields = document.getElementById("co-encadrant-fields");
+                if (document.getElementById("coencadrant-oui").checked) {
+                    coEncadrantFields.style.display = "block";
+                } else {
+                    coEncadrantFields.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
